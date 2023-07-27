@@ -1,3 +1,8 @@
 class Employee < ActiveRecord::Base
-  belongs_to :store
+  belongs_to :store, required: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :hourly_rate, numericality: {greater_than_equal_to: 40, less_than_equal_to: 200} 
 end
+
+
